@@ -1,9 +1,13 @@
 package produks_beli_jual;
 
+import com.mysql.cj.util.Util;
+import java.security.Timestamp;
+import java.text.SimpleDateFormat;
+
 
 public class Jual {
     
-    String jenis, namaProduk;
+    String jenis, namaProduk ;
     int jumlah, harga;
     
     public Jual(){}
@@ -57,6 +61,6 @@ public class Jual {
     
     public int ambilJumlah(){
         return this.jumlah;
-    }
+    }   
     
 }
