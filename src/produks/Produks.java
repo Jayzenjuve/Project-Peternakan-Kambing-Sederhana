@@ -4,15 +4,19 @@ import produks_beli_jual.*;
 import java.util.Scanner;
 import java.util.ArrayList;
 import crud.koneksi;
+import gui.*;
 
 public class Produks {
 
 
     public static void main(String[] args) {
-        koneksi db = new koneksi();
-        db.dataProduks();
-//       Beli jalan = new Beli();
-//       Scanner input = new Scanner(System.in);
+        new FrameUtama().setVisible(true);
+                
+        
+//        koneksi db = new koneksi();
+//        db.dataProduks();
+//        Beli jalan = new Beli();
+//        Scanner input = new Scanner(System.in);
 //       
 //        System.out.println("========================Pemesanan========================");
 //        System.out.print("Nama : ");

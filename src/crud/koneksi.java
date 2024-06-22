@@ -4,10 +4,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;  
+import java.util.Date;  
 
 public class koneksi {
     
-    private String databaseName = "trimuldiyanto_wijaya_2210010125";
+    private String databaseName = "dbpeternakan_2210010125";
     private String username = "root";
     private String password = "";
     private String lokasi = "jdbc:mysql://localhost/"+databaseName;
@@ -23,8 +25,12 @@ public class koneksi {
         } catch (Exception e) {
             System.err.println(e.toString());
         }
-    }   
-    public void simpanProduks(int paramid, String paramjenis, String paramnama, String paramcreated_at, String paramupdated_at){
+    }
+    
+    public void simpanProduks(int paramid, String paramjenis, String paramnama){
+        Date currentDate = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String currentDateTime = dateFormat.format(currentDate);
         
         try {
             String SQL = "INSERT INTO produks (id,jenis,nama,created_at,updated_at)"
@@ -32,10 +38,10 @@ public class koneksi {
             
             PreparedStatement perintah = koneksiDB.prepareStatement(SQL);
             perintah.setInt(1, paramid);
-            perintah.setString(2, paramjenis);
-            perintah.setString(3, paramnama);
-            perintah.setString(4, paramcreated_at);
-            perintah.setString(5, paramupdated_at);
+            perintah.setString(1, paramjenis);
+            perintah.setString(2, paramnama);
+            perintah.setString(3, currentDateTime);
+            perintah.setString(4, currentDateTime);
             perintah.executeUpdate();
             System.out.println("Data Berhasil Di Simpan");
             
@@ -43,7 +49,10 @@ public class koneksi {
             System.out.println(e.getMessage());
         }
     }
-    public void ubahProduks(int paramid, String paramjenis, String paramnama, String paramupdated_at){
+    public void ubahProduks(int paramid, String paramjenis, String paramnama){
+        Date currentDate = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String currentDateTime = dateFormat.format(currentDate);
         
         try {
             String SQL = "UPDATE produks SET jenis = ?, nama = ?, updated_at = ? WHERE id = ?";
@@ -51,7 +60,7 @@ public class koneksi {
             PreparedStatement perintah = koneksiDB.prepareStatement(SQL);
             perintah.setString(1, paramjenis);
             perintah.setString(2, paramnama);
-            perintah.setString(3, paramupdated_at);
+            perintah.setString(3, currentDateTime);
             perintah.setInt(4, paramid);
             perintah.executeUpdate();
             System.out.println("Data Berhasil Di Ubah");
