@@ -3,11 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/jayab/Documents/NetBeansProjects/Produks/src/gui/FramePembelian.java</file>
             <file>file:/C:/Users/jayab/Documents/NetBeansProjects/Produks/src/crud/koneksi.java</file>
-            <file>file:/C:/Users/jayab/Documents/NetBeansProjects/Produks/src/gui/FrameProduks.java</file>
+            <file>file:/C:/Users/jayab/Documents/NetBeansProjects/Produks/src/gui/FramePemasukkan.java</file>
+            <file>file:/C:/Users/jayab/Documents/NetBeansProjects/Produks/src/gui/FramePengeluaran.java</file>
             <file>file:/C:/Users/jayab/Documents/NetBeansProjects/Produks/src/gui/FrameUtama.java</file>
-            <file>file:/C:/Users/jayab/Documents/NetBeansProjects/Produks/src/produks_beli_jual/Jual.java</file>
+            <file>file:/C:/Users/jayab/Documents/NetBeansProjects/Produks/src/gui/FrameSaldo.java</file>
         </group>
     </open-files>
 </project-private>

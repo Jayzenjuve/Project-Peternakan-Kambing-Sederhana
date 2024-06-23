@@ -1,11 +1,11 @@
 package gui;
 import crud.koneksi;
 
-public class FramePembelian extends javax.swing.JFrame {
+public class FramePenjualan extends javax.swing.JFrame {
 
     koneksi crud;
     
-    public FramePembelian() {
+    public FramePenjualan() {
         initComponents();
         this.setLocationRelativeTo(null);
         crud = new koneksi();
@@ -28,7 +28,7 @@ public class FramePembelian extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtJumlah = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtTglBeli = new javax.swing.JTextField();
+        txtTglJual = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtHarga = new javax.swing.JTextField();
         btnHapus = new javax.swing.JButton();
@@ -98,7 +98,7 @@ public class FramePembelian extends javax.swing.JFrame {
                             .addComponent(txtJenis)
                             .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtJumlah)
-                            .addComponent(txtTglBeli, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTglJual, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtHarga, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtIDProduk, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(31, 31, 31))
@@ -121,7 +121,7 @@ public class FramePembelian extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txtTglBeli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTglJual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -142,15 +142,15 @@ public class FramePembelian extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
-        crud.hapusProduksBeli(Integer.valueOf(txtID.getText()));
+        crud.hapusProduksJual(Integer.valueOf(txtID.getText()));
     }//GEN-LAST:event_btnHapusActionPerformed
 
     private void btnUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahActionPerformed
-        crud.ubahProduksBeli(Integer.valueOf(txtID.getText()), txtJenis.getText(), Integer.valueOf(txtJumlah.getText()), txtTglBeli.getText(), Integer.valueOf(txtHarga.getText()), Integer.valueOf(txtIDProduk.getText()));
+        crud.ubahProduksJual(Integer.valueOf(txtID.getText()), txtJenis.getText(), Integer.valueOf(txtJumlah.getText()), txtTglJual.getText(), Integer.valueOf(txtHarga.getText()), Integer.valueOf(txtIDProduk.getText()));
     }//GEN-LAST:event_btnUbahActionPerformed
 
     private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
-        crud.simpanProduksBeli(Integer.valueOf(txtID.getText()), txtJenis.getText(), Integer.valueOf(txtJumlah.getText()), txtTglBeli.getText(), Integer.valueOf(txtHarga.getText()),Integer.valueOf(txtIDProduk.getText()));
+        crud.simpanProduksJual(Integer.valueOf(txtID.getText()), txtJenis.getText(), Integer.valueOf(txtJumlah.getText()), txtTglJual.getText(), Integer.valueOf(txtHarga.getText()),Integer.valueOf(txtIDProduk.getText()));
     }//GEN-LAST:event_btnSimpanActionPerformed
 
     /**
@@ -170,20 +170,21 @@ public class FramePembelian extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FramePembelian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FramePenjualan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FramePembelian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FramePenjualan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FramePembelian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FramePenjualan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FramePembelian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FramePenjualan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FramePembelian().setVisible(true);
+                new FramePenjualan().setVisible(true);
             }
         });
     }
@@ -203,6 +204,6 @@ public class FramePembelian extends javax.swing.JFrame {
     private javax.swing.JTextField txtIDProduk;
     private javax.swing.JTextField txtJenis;
     private javax.swing.JTextField txtJumlah;
-    private javax.swing.JTextField txtTglBeli;
+    private javax.swing.JTextField txtTglJual;
     // End of variables declaration//GEN-END:variables
 }

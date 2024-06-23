@@ -181,7 +181,233 @@ public class koneksi {
             System.err.println(e.getMessage());
         }
     }
-    
-    
-    
+    public void simpanProduksJual(int paramid, String paramjenis, int paramjumlah, String paramtanggalbeli, int paramharga, int paramidproduk){
+        Date currentDate = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String currentDateTime = dateFormat.format(currentDate);
+        
+        try {
+            String SQL = "INSERT INTO produk_juals (id,jenis,jumlah,tanggal_jual,harga,created_at,updated_at,produks_id)"
+                    + "VALUE(?,?,?,?,?,?,?,?)";
+            
+            PreparedStatement perintah = koneksiDB.prepareStatement(SQL);
+            perintah.setInt(1, paramid);
+            perintah.setString(2, paramjenis);
+            perintah.setInt(3, paramjumlah);
+            perintah.setString(4, paramtanggalbeli);
+            perintah.setInt(5, paramharga);
+            perintah.setString(6, currentDateTime);
+            perintah.setString(7, currentDateTime);
+            perintah.setInt(8, paramidproduk);
+            perintah.executeUpdate();
+            System.out.println("Data Berhasil Di Simpan");
+            
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    public void ubahProduksJual(int paramid, String paramjenis, int paramjumlah, String paramtanggalbeli, int paramharga, int paramidproduk){
+        Date currentDate = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String currentDateTime = dateFormat.format(currentDate);
+        
+        try {
+            String SQL = "UPDATE produk_juals SET jenis = ?, jumlah = ?, tanggal_jual = ?, harga = ?, updated_at = ?, produks_id = ? WHERE id = ?";
+            
+            PreparedStatement perintah = koneksiDB.prepareStatement(SQL);
+            perintah.setString(1, paramjenis);
+            perintah.setInt(2, paramjumlah);
+            perintah.setString(3, paramtanggalbeli);
+            perintah.setInt(4, paramharga);
+            perintah.setString(5, currentDateTime);
+            perintah.setInt(6, paramidproduk);
+            perintah.setInt(7, paramid);
+            perintah.executeUpdate();
+            System.out.println("Data Berhasil Di Ubah");
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+     public void hapusProduksJual(int paramid){
+        try {
+            String SQL = "DELETE FROM produk_juals WHERE id = ?";
+            
+            PreparedStatement perintah = koneksiDB.prepareStatement(SQL);
+            perintah.setInt(1, paramid);
+            perintah.executeUpdate();
+            System.out.println("Data Berhasil Di Hapus");
+            
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
+    public void simpanSaldo(int paramid, int paramsaldo){
+        Date currentDate = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String currentDateTime = dateFormat.format(currentDate);
+        
+        try{
+            String SQL = "INSERT INTO saldos (id,saldo,created_at,updated_at)"
+                    + "VALUE(?,?,?,?)";
+            
+            PreparedStatement perintah = koneksiDB.prepareStatement(SQL);
+            perintah.setInt(1, paramid);
+            perintah.setInt(2, paramsaldo);
+            perintah.setString(3, currentDateTime);
+            perintah.setString(4, currentDateTime);
+            perintah.executeUpdate();
+            System.out.println("Data Berhasil Di Simpan");
+            
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
+    public void ubahSaldo(int paramid, int paramsaldo){
+        Date currentDate = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String currentDateTime = dateFormat.format(currentDate);
+        
+        try{
+            String SQL = "UPDATE saldos SET saldo = ?, updated_at = ? WHERE ID = ?";
+
+            PreparedStatement perintah = koneksiDB.prepareStatement(SQL);
+            perintah.setInt(1, paramsaldo);
+            perintah.setString(2, currentDateTime);
+            perintah.setInt(3, paramid);
+            perintah.executeUpdate();
+            System.out.println("Data Berhasil Di Ubah");
+            
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
+    public void hapusSaldo(int paramid){
+        try{
+            String SQL = "DELETE FROM saldo WHERE ID = ?";
+            
+        PreparedStatement perintah = koneksiDB.prepareStatement(SQL);
+            perintah.setInt(1, paramid);
+            perintah.executeUpdate();
+            System.out.println("Data Berhasil Di Hapus");
+            
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
+    public void simpanPemasukkan(int paramid, String paramnama, String paramtgl, int paramharga){
+        Date currentDate = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String currentDateTime = dateFormat.format(currentDate);
+        
+        try{
+            String SQL = "INSERT INTO pemasukkans (id,nama,tanggal,harga,created_at,updated_at)"
+                    + "VALUE(?,?,?,?,?,?)";
+            
+            PreparedStatement perintah = koneksiDB.prepareStatement(SQL);
+            perintah.setInt(1, paramid);
+            perintah.setString(2, paramnama);
+            perintah.setString(3, paramtgl);
+            perintah.setInt(4, paramharga);
+            perintah.setString(5, currentDateTime);
+            perintah.setString(6, currentDateTime);
+            perintah.executeUpdate();
+            System.out.println("Data Berhasil Di Simpan");
+            
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
+    public void ubahPemasukkan(int paramid, String paramnama, String paramtgl, int paramharga){
+        Date currentDate = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String currentDateTime = dateFormat.format(currentDate);
+        
+        try{
+            String SQL = "UPDATE pemasukkans SET nama = ?, tanggal = ?, harga = ?, updated_at = ? WHERE ID = ?";
+            
+            PreparedStatement perintah = koneksiDB.prepareStatement(SQL);
+            perintah.setString(1, paramnama);
+            perintah.setString(2, paramtgl);
+            perintah.setInt(3, paramharga);
+            perintah.setString(4, currentDateTime);
+            perintah.setInt(5, paramid);
+            perintah.executeUpdate();
+            System.out.println("Data Berhasil Di Ubah");
+            
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
+    public void hapusPemasukkan(int paramid){
+        try{
+            String SQL = "DELETE FROM pemasukkans WHERE ID = ?";
+            
+        PreparedStatement perintah = koneksiDB.prepareStatement(SQL);
+            perintah.setInt(1, paramid);
+            perintah.executeUpdate();
+            System.out.println("Data Berhasil Di Hapus");
+            
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
+    public void simpanPengeluaran(int paramid, String paramnama, String paramtgl, int paramharga){
+        Date currentDate = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String currentDateTime = dateFormat.format(currentDate);
+        
+        try{
+            String SQL = "INSERT INTO pengeluarans (id,nama,tanggal,harga,created_at,updated_at)"
+                    + "VALUE(?,?,?,?,?,?)";
+            
+            PreparedStatement perintah = koneksiDB.prepareStatement(SQL);
+            perintah.setInt(1, paramid);
+            perintah.setString(2, paramnama);
+            perintah.setString(3, paramtgl);
+            perintah.setInt(4, paramharga);
+            perintah.setString(5, currentDateTime);
+            perintah.setString(6, currentDateTime);
+            perintah.executeUpdate();
+            System.out.println("Data Berhasil Di Simpan");
+            
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
+    public void ubahPengeluaran (int paramid, String paramnama, String paramtgl, int paramharga){
+        Date currentDate = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String currentDateTime = dateFormat.format(currentDate);
+        
+        try{
+            String SQL = "UPDATE pengeluarans SET nama = ?, tanggal = ?, harga = ?, updated_at = ? WHERE ID = ?";
+            
+            PreparedStatement perintah = koneksiDB.prepareStatement(SQL);
+            perintah.setString(1, paramnama);
+            perintah.setString(2, paramtgl);
+            perintah.setInt(3, paramharga);
+            perintah.setString(4, currentDateTime);
+            perintah.setInt(5, paramid);
+            perintah.executeUpdate();
+            System.out.println("Data Berhasil Di Ubah");
+            
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
+    public void hapusPengeluaran (int paramid){
+        try{
+            String SQL = "DELETE FROM pengeluarans WHERE ID = ?";
+            
+        PreparedStatement perintah = koneksiDB.prepareStatement(SQL);
+            perintah.setInt(1, paramid);
+            perintah.executeUpdate();
+            System.out.println("Data Berhasil Di Hapus");
+            
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
 }
