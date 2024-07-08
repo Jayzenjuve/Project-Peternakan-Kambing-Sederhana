@@ -7,17 +7,13 @@ import crud.koneksi;
 import gui.*;
 
 public class Produks {
-
-
+    
+    
     public static void main(String[] args) {
-        new FrameUtama().setVisible(true);
+        //new FrameUtama().setVisible(true);
                 
-        
-//        koneksi db = new koneksi();
-//        db.dataProduks();
-//        Beli jalan = new Beli();
-//        Scanner input = new Scanner(System.in);
-//       
+        new FrameUtama().setVisible(true);
+       
 //        System.out.println("========================Pemesanan========================");
 //        System.out.print("Nama : ");
 //        jalan.inputNama(input.nextLine());

@@ -1,9 +1,6 @@
 package produks_beli_jual;
 
 import com.mysql.cj.util.Util;
-import java.security.Timestamp;
-import java.text.SimpleDateFormat;
-
 
 public class Jual {
     
